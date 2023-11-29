@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Sync lockfile and toolchain
-        uses: ZettaScaleLabs/zenoh-sync-lockfile-and-toolchain@main
+        uses: ZettaScaleLabs/zenoh-sync-lockfile-and-toolchain@fix/lockfile-path
         with:
           manifest-path: zenoh-jni/Cargo.toml
           toolchain-path: rust-toolchain
