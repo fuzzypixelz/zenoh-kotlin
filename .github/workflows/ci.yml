@@ -39,11 +39,12 @@ jobs:
           add-to-path: false
           link-to-sdk: true
 
-      - name: Install Rust
-        uses: actions-rs/toolchain@v1
-        with:
-          override: true
-          components: rustfmt, clippy
+      - name: Add rustfmt and clippy components
+        # The {ubuntu,macos}-latest runner images come with rustup out of the box
+        # See: https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md#rust-tools
+        #      https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md#rust-tools
+        # Moreover, the rust-toolchain(.toml) file will enforce the Rust version used
+        run: rustup component add rustfmt clippy
 
       - name: Cargo Format
         working-directory: zenoh-jni
