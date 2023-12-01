@@ -12,4 +12,5 @@ jobs:
         uses: ZettaScaleLabs/zenoh-sync-lockfile-and-toolchain@automerge
         with:
           manifest-path: zenoh-jni/Cargo.toml
+          token: ${{ secrets.PAT }}
 
